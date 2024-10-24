@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tut-demo
+  name: nginx
   annotations:
     link.argocd.argoproj.io/external-link: http://78.47.144.24:30829/
 spec:
   selector:
     matchLabels:
-      app: tut-demo
+      app: nginx
   replicas: 2
   template:
     metadata:
       labels:
-        app: tut-demo
+        app: nginx
     spec:
       containers:
-      - name: tut-demo
+      - name: nginx
         image: nginx
         ports:
         - containerPort: 8080
